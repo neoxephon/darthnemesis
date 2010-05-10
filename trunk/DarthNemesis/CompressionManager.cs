@@ -22,6 +22,8 @@ namespace DarthNemesis
         private const int SlidingWindowSize = 4096;
         private const int LzssBufferSize = 18;
         private const int OnzBufferSize = 16;
+        private const byte LzssCompressionType = 0x10;
+        private const byte OnzCompressionType = 0x11;
         private const int StandardMinDistance = 1;
         private const int BinaryMinDistance = 3;
         private const byte Arm9FooterLength = 0x0C;
@@ -48,7 +50,7 @@ namespace DarthNemesis
         /// <returns>The compressed file data.</returns>
         public static byte[] CompressLzss(byte[] uncompressedData)
         {
-            return Compress(uncompressedData, LzssBufferSize);
+            return Compress(uncompressedData, LzssBufferSize, LzssCompressionType);
         }
         
         /// <summary>
@@ -58,7 +60,7 @@ namespace DarthNemesis
         /// <returns>The compressed file data.</returns>
         public static byte[] CompressOnz(byte[] uncompressedData)
         {
-            return Compress(uncompressedData, OnzBufferSize);
+            return Compress(uncompressedData, OnzBufferSize, OnzCompressionType);
         }
         
         /// <summary>
@@ -262,7 +264,7 @@ namespace DarthNemesis
             return CompressBinary(uncompressedData, 0);
         }
         
-        private static byte[] Compress(byte[] uncompressedData, int readAheadBufferSize, bool addHeader, int distance)
+        private static byte[] Compress(byte[] uncompressedData, int readAheadBufferSize, byte compressionType, bool addHeader, int distance)
         {
             List<byte> compressedData = new List<byte>();
             Queue<byte> readAheadBuffer = new Queue<byte>(readAheadBufferSize);
@@ -271,7 +273,7 @@ namespace DarthNemesis
             int position = 0;
             if (addHeader)
             {
-                compressedData.Add(0x10);
+                compressedData.Add(compressionType);
                 compressedData.AddRange(BitConverter.GetBytes(uncompressedData.Length));
                 compressedData.RemoveAt(4);
             }
@@ -411,9 +413,9 @@ namespace DarthNemesis
             return new int[2] { slidingWindow.Count - offsets[0], size };
         }
         
-        private static byte[] Compress(byte[] uncompressedData, int readAheadBufferSize)
+        private static byte[] Compress(byte[] uncompressedData, int readAheadBufferSize, byte compressionType)
         {
-            return Compress(uncompressedData, readAheadBufferSize, true, 1);
+            return Compress(uncompressedData, readAheadBufferSize, compressionType, true, 1);
         }
         
         private static byte[] DecompressLzss(byte[] compressedData, int size, int currentPosition, int distance)
@@ -550,7 +552,7 @@ namespace DarthNemesis
             }
             
             // Compress the data now that it is in the correct order
-            byte[] outputData = Compress(inputData, LzssBufferSize, false, BinaryMinDistance);
+            byte[] outputData = Compress(inputData, LzssBufferSize, OnzCompressionType, false, BinaryMinDistance);
             
             int outputDataLength = headerLength + outputData.Length;
             int compressedDataLength = RoundUp(outputDataLength) + (2 * Constants.PointerLength);
