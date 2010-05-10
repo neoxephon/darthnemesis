@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dictionary>
+    <Acronyms>
+        <CasingExceptions>
+            <Acronym>DCPB</Acronym>
+            <Acronym>DMSB</Acronym>
+            <Acronym>DMST</Acronym>
+            <Acronym>DNGC</Acronym>
+            <Acronym>JIS</Acronym>
+        </CasingExceptions>
+    </Acronyms>
+</Dictionary>
