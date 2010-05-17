@@ -74,7 +74,11 @@ namespace DarthNemesis
             try
             {
                 packFile.Unpack();
-                this.log.Debug(packFile.FileName, "Unpacked successfully.");
+                if (!"Game".Equals(packFile.FileName))
+                {
+                    this.log.Debug(packFile.FileName, "Unpacked successfully.");
+                }
+                
                 this.Refresh();
             }
             catch (SystemException exc)
@@ -171,7 +175,10 @@ namespace DarthNemesis
                 if (isModified)
                 {
                     packFile.Pack();
-                    this.log.Info(packFile.FileName, "Repacked successfully.");
+                    if (!"Game".Equals(packFile.FileName))
+                    {
+                        this.log.Info(packFile.FileName, "Repacked successfully.");
+                    }
                 }
                 else
                 {
