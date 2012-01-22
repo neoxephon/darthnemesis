@@ -218,6 +218,16 @@ namespace SummonTransX
         /// Converts a range of bytes into a text string using the project's Encoding.
         /// </summary>
         /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data)
+        {
+            return GetText(data, 0);
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <returns>The converted text string.</returns>
         public override string GetText(byte[] data, int offset)
@@ -277,7 +287,7 @@ namespace SummonTransX
                             text += "<votes>";
                             break;
                         default:
-                            throw new FormatException(String.Format(CultureInfo.CurrentCulture, "Unrecognized control code {0:X2}{1:X2} in line: {2}", data[i], data[i + 1], text));
+                            throw new FormatException(string.Format(CultureInfo.CurrentCulture, "Unrecognized control code {0:X2}{1:X2} in line: {2}", data[i], data[i + 1], text));
                     }
                     
                     i++;
@@ -306,6 +316,18 @@ namespace SummonTransX
             }
             
             return text;
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <param name="offset">The starting offset of the data in the array.</param>
+        /// <param name="length">The maximum number of bytes to convert.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data, int offset, int length)
+        {
+            throw new NotSupportedException("Unused");
         }
         
         /// <summary>

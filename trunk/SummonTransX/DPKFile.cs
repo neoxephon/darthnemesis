@@ -15,7 +15,7 @@ namespace SummonTransX
     using System.Globalization;
     using System.IO;
     using DarthNemesis;
-
+    
     /// <summary>
     /// A package file that contains multiple script files.
     /// </summary>
