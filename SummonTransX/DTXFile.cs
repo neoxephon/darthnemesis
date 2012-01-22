@@ -13,7 +13,7 @@ namespace SummonTransX
     using System.IO;
     using System.Text;
     using DarthNemesis;
-
+    
     /// <summary>
     /// A text file in Summon Night X.
     /// </summary>
