@@ -159,9 +159,25 @@ namespace DarthNemesis
         /// Converts a range of bytes into a text string using the project's Encoding.
         /// </summary>
         /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <returns>The converted text string.</returns>
+        public abstract string GetText(byte[] data);
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <returns>The converted text string.</returns>
         public abstract string GetText(byte[] data, int offset);
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <param name="offset">The starting offset of the data in the array.</param>
+        /// <param name="length">The maximum number of bytes to convert.</param>
+        /// <returns>The converted text string.</returns>
+        public abstract string GetText(byte[] data, int offset, int length);
         
         /// <summary>
         /// Converts a text string into an array of bytes using the project's Encoding.
