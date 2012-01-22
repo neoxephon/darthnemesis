@@ -675,10 +675,31 @@ namespace SagaTrans
         /// Converts a range of bytes into a text string using the project's Encoding.
         /// </summary>
         /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data)
+        {
+            return this.GetText(data, 0);
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <param name="offset">The starting offset of the data in the array.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data, int offset)
+        {
+            return this.GetText(data, offset, data.Length).Replace("\r", @"\r").Replace("\n", @"\n");
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <param name="length">The maximum number of bytes to convert.</param>
         /// <returns>The converted text string.</returns>
-        public string GetText(byte[] data, int offset, int length)
+        public override string GetText(byte[] data, int offset, int length)
         {
             string text = string.Empty;
             for (int i = offset; i < offset + length && i < data.Length; i++)
@@ -701,17 +722,6 @@ namespace SagaTrans
             }
             
             return text;
-        }
-        
-        /// <summary>
-        /// Converts a range of bytes into a text string using the project's Encoding.
-        /// </summary>
-        /// <param name="data">A byte array containing the data to be converted.</param>
-        /// <param name="offset">The starting offset of the data in the array.</param>
-        /// <returns>The converted text string.</returns>
-        public override string GetText(byte[] data, int offset)
-        {
-            return this.GetText(data, offset, data.Length).Replace("\r", @"\r").Replace("\n", @"\n");
         }
         
         /// <summary>
