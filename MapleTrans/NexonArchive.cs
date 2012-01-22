@@ -410,7 +410,7 @@ namespace MapleTrans
         
         private FileType GetFileType(int index)
         {
-            return (FileType) this.Game.Cache.Settings[this.GameFileName][index].Int32Value;
+            return (FileType)this.Game.Cache.Settings[this.GameFileName][index].Int32Value;
         }
         
         private int[] GetFolderSizes()
