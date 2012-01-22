@@ -56,7 +56,7 @@ namespace DarthNemesis
                 if (read <= 0)
                 {
                     throw new EndOfStreamException(
-                        String.Format(
+                        string.Format(
                             CultureInfo.CurrentCulture,
                             "End of stream reached with {0} bytes left to read",
                             remaining));
