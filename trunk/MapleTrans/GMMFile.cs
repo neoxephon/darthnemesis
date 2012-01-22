@@ -84,7 +84,7 @@ namespace MapleTrans
             {
                 int textOffset = this.TextSectionOffset + BitConverter.ToInt32(fileData, pointerOffset);
                 ushort textLength = BitConverter.ToUInt16(fileData, textOffset);
-                string text = (this.Game as Game).GetText(fileData, textOffset + 2, textLength);
+                string text = this.Game.GetText(fileData, textOffset + 2, textLength);
                 this.strings[i] = text;
                 
                 pointerOffset += TableEntryLength;
@@ -105,7 +105,7 @@ namespace MapleTrans
             BinaryWriter textWriter = new BinaryWriter(textStream);
             
             // Placeholder for text length
-            textWriter.Write((ushort) 0x0000);
+            textWriter.Write((ushort)0x0000);
             
             byte[] encodedString;
             int pointerOffset = 0x0C;
@@ -113,7 +113,7 @@ namespace MapleTrans
             for (int i = 0; i < this.strings.Length; i++)
             {
                 encodedString = this.Game.GetBytes(this.strings[i]);
-                ushort stringLength = (ushort) encodedString.Length;
+                ushort stringLength = (ushort)encodedString.Length;
                 
                 StreamHelper.WriteBytes(textOffset, headerData, pointerOffset);
                 textWriter.Write(stringLength);
@@ -126,7 +126,7 @@ namespace MapleTrans
             textWriter.Flush();
             
             byte[] textData = textStream.ToArray();
-            ushort textLength = (ushort) textData.Length;
+            ushort textLength = (ushort)textData.Length;
             ushort totalLength = (ushort)(this.TextSectionOffset + textLength);
             
             WriteBytes(textLength, textData, 0x00);

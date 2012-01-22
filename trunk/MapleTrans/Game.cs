@@ -90,6 +90,16 @@ namespace MapleTrans
         /// Converts a range of bytes into a text string using the project's Encoding.
         /// </summary>
         /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data)
+        {
+            return this.GetText(data, 0, data.Length);
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <returns>The converted text string.</returns>
         public override string GetText(byte[] data, int offset)
@@ -104,7 +114,7 @@ namespace MapleTrans
                 }
             }
             
-            return Encoding.GetString(data, offset, i - offset).Replace("\t", @"[\t]");
+            return this.GetText(data, offset, i - offset);
         }
         
         /// <summary>
@@ -114,7 +124,7 @@ namespace MapleTrans
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <param name="length">The number of bytes to read from the array.</param>
         /// <returns>The converted text string.</returns>
-        public string GetText(byte[] data, int offset, int length)
+        public override string GetText(byte[] data, int offset, int length)
         {
             string text = Encoding.GetString(data, offset, length);
             return text.Replace("\t", @"[\t]");
