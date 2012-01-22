@@ -90,11 +90,21 @@ namespace MamoruTrans
         /// Converts a range of bytes into a text string using the project's Encoding.
         /// </summary>
         /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data)
+        {
+            return this.GetText(data, 0);
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
         /// <param name="offset">The starting offset of the data in the array.</param>
         /// <returns>The converted text string.</returns>
         public override string GetText(byte[] data, int offset)
         {
-            string text = String.Empty;
+            string text = string.Empty;
             for (int i = offset; i < data.Length; i++)
             {
                 if (i < 0)
@@ -207,6 +217,18 @@ namespace MamoruTrans
             }
             
             return text;
+        }
+        
+        /// <summary>
+        /// Converts a range of bytes into a text string using the project's Encoding.
+        /// </summary>
+        /// <param name="data">A byte array containing the data to be converted.</param>
+        /// <param name="offset">The starting offset of the data in the array.</param>
+        /// <param name="length">The maximum number of bytes to convert.</param>
+        /// <returns>The converted text string.</returns>
+        public override string GetText(byte[] data, int offset, int length)
+        {
+            throw new NotSupportedException("Unused");
         }
         
         /// <summary>
