@@ -55,7 +55,7 @@ namespace DarthNemesis
         /// Gets the Name of the element it describes.
         /// </summary>
         /// <value>The Name of the element it describes.</value>
-        /// <remarks>Read only property</remarks>
+        /// <remarks>Read only property.</remarks>
         public string Name
         {
             get
@@ -218,7 +218,7 @@ namespace DarthNemesis
         /// </code>
         /// </example>
         /// <returns>
-        /// The specific child node
+        /// The specific child node.
         /// </returns>
         public ConfigSetting this[string path]
         {
@@ -235,7 +235,7 @@ namespace DarthNemesis
                 {
                     string section = asection;
                     
-                    if (asection.Length > 0 && Char.IsNumber(asection[0]))
+                    if (asection.Length > 0 && char.IsNumber(asection[0]))
                     {
                         section = "N." + asection;
                     }
@@ -275,7 +275,7 @@ namespace DarthNemesis
                         }
                     }
 
-                    string transformedpath = String.Format(CultureInfo.InvariantCulture, "{0}[{1}]", nodename, nodeposition);
+                    string transformedpath = string.Format(CultureInfo.InvariantCulture, "{0}[{1}]", nodename, nodeposition);
                     newnode = selectednode.SelectSingleNode(transformedpath);
 
                     while (newnode == null)
@@ -308,7 +308,7 @@ namespace DarthNemesis
         /// </code>
         /// </example>
         /// <returns>
-        /// The specific child node
+        /// The specific child node.
         /// </returns>
         public ConfigSetting this[int index]
         {
@@ -375,7 +375,7 @@ namespace DarthNemesis
         /// Retrieves a list of each and every child node.
         /// </summary>
         /// <returns>An IList compatible object describing each and every child node.</returns>
-        /// <remarks>Read only property</remarks>
+        /// <remarks>Read only property.</remarks>
         public IList<ConfigSetting> Children()
         {
             if (this.ChildCount(false) == 0)

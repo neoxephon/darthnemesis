@@ -70,8 +70,8 @@ namespace DarthNemesis
         /// <value>Whether changes should be saved before unloading the file.</value>
         /// <remarks>
         /// <list type="bullet">
-        /// <item>Only applies if it was loaded from a local file</item>
-        /// <item>True by default</item>
+        /// <item>Only applies if it was loaded from a local file.</item>
+        /// <item>True by default.</item>
         /// </list>
         /// </remarks>
         public bool CommitOnUnload
@@ -178,7 +178,7 @@ namespace DarthNemesis
         /// Path and filename from where to load the xml file.
         /// </param>
         /// <remarks>
-        /// Throws an exception if file does not exist
+        /// Throws an exception if file does not exist.
         /// </remarks>
         public void LoadXmlFromFile(string fileName)
         {
@@ -216,7 +216,7 @@ namespace DarthNemesis
                 this.Commit();
             }
             
-            this.LoadXmlFromString(String.Format(CultureInfo.InvariantCulture, "<{0}></{0}>", rootElement));
+            this.LoadXmlFromString(string.Format(CultureInfo.InvariantCulture, "<{0}></{0}>", rootElement));
         }
 
         /// <summary>
