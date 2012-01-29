@@ -17,12 +17,8 @@ namespace DarthNemesis
     /// <summary>
     /// Helper methods for stream I/O.
     /// </summary>
-    public sealed class StreamHelper
+    public static class StreamHelper
     {
-        private StreamHelper()
-        {
-        }
-        
         /// <summary>
         /// A helper method for reading lines from a stream. Ignores comment lines and pads with blank lines if the
         /// application tries to read past the end of the stream.
