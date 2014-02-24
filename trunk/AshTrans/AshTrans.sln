@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AshTrans", "AshTrans.csproj", "{387ABE56-E03A-4724-A9F2-696A4E64D964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarthNemesis", "..\DarthNemesis\DarthNemesis.csproj", "{7838108B-6B58-494A-8599-482BCD45F3FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{387ABE56-E03A-4724-A9F2-696A4E64D964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387ABE56-E03A-4724-A9F2-696A4E64D964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387ABE56-E03A-4724-A9F2-696A4E64D964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{387ABE56-E03A-4724-A9F2-696A4E64D964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7838108B-6B58-494A-8599-482BCD45F3FB}.Debug|Any CPU.Build.0 = Debug|x86
+		{7838108B-6B58-494A-8599-482BCD45F3FB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7838108B-6B58-494A-8599-482BCD45F3FB}.Release|Any CPU.Build.0 = Release|x86
+		{7838108B-6B58-494A-8599-482BCD45F3FB}.Release|Any CPU.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal
