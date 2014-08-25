@@ -203,11 +203,18 @@ namespace TingleTrans
                 // Skip the one string that's empty and contains no terminator.
                 if (i != this.skipIndex)
                 {
-                    byte[] encodedBytes = this.encoding.GetBytes(this.strings[i]);
-                    ushort length = (ushort)encodedBytes.Length;
-                    byte[] lengthBytes = BitConverter.GetBytes(length);
-                    Array.Copy(lengthBytes, 0, this.tableData[0], tableIndex, 2);
-                    textWriter.Write(encodedBytes);
+                    try
+                    {
+                        byte[] encodedBytes = this.encoding.GetBytes(this.strings[i]);
+                        ushort length = (ushort)encodedBytes.Length;
+                        byte[] lengthBytes = BitConverter.GetBytes(length);
+                        Array.Copy(lengthBytes, 0, this.tableData[0], tableIndex, 2);
+                        textWriter.Write(encodedBytes);
+                    }
+                    catch (InvalidDataException exc)
+                    {
+                        throw new InvalidDataException(String.Format("Unable to encode line {0} [{1}]: {2}", i, this.strings[i], exc.Message));
+                    }
                 }
                 
                 tableIndex += 0x08;
