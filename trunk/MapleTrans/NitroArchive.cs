@@ -138,7 +138,7 @@ namespace MapleTrans
             
             for (int i = 0; i < fileNames.Length; i++)
             {
-                if (fileNames[i].EndsWith(".GMM.KOREAN", StringComparison.Ordinal))
+                if (fileNames[i].Contains(".GMM"))
                 {
                     string fileName = fileNames[i].Replace(ChildDirectoryPrefix, string.Empty);
                     this.TextFiles.Add(new GMMFile(fileName, this.Game));
