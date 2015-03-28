@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-# SharpDevelop 3.1.1.5327
+# SharpDevelop 4.4
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapleTrans", "MapleTrans.csproj", "{F095CB1D-9948-4FEF-91A2-69F136AE66AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarthNemesis", "..\DarthNemesis\DarthNemesis.csproj", "{7838108B-6B58-494A-8599-482BCD45F3FB}"

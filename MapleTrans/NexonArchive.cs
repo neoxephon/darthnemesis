@@ -390,7 +390,7 @@ namespace MapleTrans
                     fileName += ".NSCR";
                     break;
                 case FileType.GMM:
-                    fileName += ".GMM.KOREAN";
+                    fileName += ".GMM";
                     break;
                 case FileType.EMPTY:
                     break;

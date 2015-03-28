@@ -23,7 +23,6 @@ namespace MapleTrans
         private const string GameDirectoryPrefix = @"NDS_UNPACK\data\data\";
         private const string CacheDirectoryPrefix = @"UNPACK\";
         private const string TextDirectoryPrefix = @"text\";
-        private const string GameFileExtension = @".GMM.KOREAN";
         private const string TextFileExtension = @".txt";
         private const int StringCountOffset = 0x02;
         private const int TableEntryLength = 0x0C;
@@ -40,14 +39,14 @@ namespace MapleTrans
         }
         
         /// <summary>
-        /// Gets the name of the text file relative to the directory where the game was extracated.
+        /// Gets the name of the text file relative to the directory where the game was extracted.
         /// </summary>
         /// <value>The name of the text file.</value>
         protected override string TextFileName
         {
             get
             {
-                return TextDirectoryPrefix + this.FileName.Replace(".GMM.KOREAN", TextFileExtension);
+                return TextDirectoryPrefix + this.FileName + TextFileExtension;
             }
         }
         
