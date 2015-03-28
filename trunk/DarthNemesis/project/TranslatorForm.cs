@@ -14,6 +14,7 @@ namespace DarthNemesis
     using System.Drawing;
     using System.Globalization;
     using System.IO;
+    using System.Reflection;
     using System.Windows.Forms;
     using DarthNemesis;
 
@@ -85,6 +86,10 @@ namespace DarthNemesis
             {
                 this.log.Error(packFile.FileName, "Error: " + exc.Message);
                 isUnpackSuccessful = false;
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
             
             foreach (IPackFile file in packFile.PackFiles)
@@ -142,6 +147,10 @@ namespace DarthNemesis
             {
                 this.log.Error(textFile.FileName, "Error: " + exc.Message);
                 isLoadSuccessful = false;
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
             
             return isLoadSuccessful;
@@ -188,6 +197,10 @@ namespace DarthNemesis
             catch (SystemException exc)
             {
                 this.log.Error(packFile.FileName, "Error: " + exc.Message);
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
             
             return isModified;
@@ -212,6 +225,10 @@ namespace DarthNemesis
             catch (SystemException exc)
             {
                 this.log.Error(textFile.FileName, "Error: " + exc.Message);
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
             
             return isModified;
@@ -296,6 +313,10 @@ namespace DarthNemesis
             catch (SystemException exc)
             {
                 this.log.Error(textFile.FileName, "Error: " + exc.Message);
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
         }
         #endregion
@@ -321,6 +342,10 @@ namespace DarthNemesis
             catch (SystemException exc)
             {
                 this.log.Error("Unable to initialize: " + exc.Message);
+                if (System.Diagnostics.Debugger.IsAttached)
+                {
+                    throw;
+                }
             }
         }
         
