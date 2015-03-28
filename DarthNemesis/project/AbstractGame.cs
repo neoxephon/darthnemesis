@@ -206,7 +206,7 @@ namespace DarthNemesis
         }
         
         /// <summary>
-        /// Dispose(bool disposing) executes in two distinct scenarios.
+        /// Executes in two distinct scenarios.
         /// If disposing equals true, the method has been called directly
         /// or indirectly by a user's code. Managed and unmanaged resources
         /// can be disposed.

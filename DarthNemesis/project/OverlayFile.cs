@@ -62,7 +62,7 @@ namespace DarthNemesis
         
         #region Properties
         /// <summary>
-        /// Gets the name of the text file relative to the directory where the game was extracated.
+        /// Gets the name of the text file relative to the directory where the game was extracted.
         /// </summary>
         /// <value>The name of the text file.</value>
         protected override string TextFileName

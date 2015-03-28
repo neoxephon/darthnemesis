@@ -74,7 +74,7 @@ namespace DarthNemesis
         /// <summary>
         /// Gets the number of bytes required for the text once it has been encoded and padded to a 4-byte boundary.
         /// </summary>
-        /// <value>The number of bytes requried for the encoded text.</value>
+        /// <value>The number of bytes required for the encoded text.</value>
         public int Length
         {
             get
