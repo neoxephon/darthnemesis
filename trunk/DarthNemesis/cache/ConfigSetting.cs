@@ -103,9 +103,9 @@ namespace DarthNemesis
         }
 
         /// <summary>
-        /// Gets or sets the int value of the specific Configuration Node.
+        /// Gets or sets the integer value of the specific Configuration Node.
         /// </summary>
-        /// <value>The int value of the specific Configuration Node.</value>
+        /// <value>The integer value of the specific Configuration Node.</value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "Default value expected when conversion fails")]
         public int Int32Value
         {
@@ -143,9 +143,9 @@ namespace DarthNemesis
         }
         
         /// <summary>
-        /// Gets or sets a value indicating whether the bool value of the specific Configuration Node is set to true.
+        /// Gets or sets a value indicating whether the boolean value of the specific Configuration Node is set to true.
         /// </summary>
-        /// <value>The bool value of the specific Configuration Node.</value>
+        /// <value>The boolean value of the specific Configuration Node.</value>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "Default value expected when conversion fails")]
         public bool BooleanValue
         {

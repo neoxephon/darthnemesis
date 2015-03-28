@@ -28,7 +28,7 @@ namespace DarthNemesis
         /// <summary>
         /// Initializes a new instance of the XmlConfig class.
         /// Create an XmlConfig from an empty xml file
-        /// containing only the rootelement named as 'xml'.
+        /// containing only the root element named as 'xml'.
         /// </summary>
         public XmlConfig()
         {
@@ -223,7 +223,7 @@ namespace DarthNemesis
         /// Save configuration to an xml file.
         /// </summary>
         /// <param name="fileName">
-        /// Path and filname where to save.
+        /// Path and filename where to save.
         /// </param>
         public void Save(string fileName)
         {
