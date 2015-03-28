@@ -50,14 +50,14 @@ namespace DarthNemesis
         {
             char[] hex = new char[length * 2];
             byte b;
-            int r;
+            int r = 0;
             for (int i = offset; i < offset + length; i++)
             {
-                r = 2 * i;
                 b = (byte)(array[i] >> 4);
                 hex[r] = (char)(b > 9 ? b + 0x37 : b + 0x30);
                 b = (byte)(array[i] & 0xF);
                 hex[r + 1] = (char)(b > 9 ? b + 0x37 : b + 0x30);
+                r += 2;
             }
             
             return new string(hex);
